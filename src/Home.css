@@ -1,0 +1,342 @@
+/*
+    the following is designed by Flexible Layout
+*/
+
+header {
+    display: flex;
+}
+
+nav {
+    flex-grow: 8;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+a:hover {
+    color: #ccff99;
+    border-radius: 4px 4px 0 0;
+    border-bottom: thick #ccff99;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#toolBar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    margin: 0 auto;
+}
+
+#recommList {
+    width: 100%;
+    height: 60%;
+    text-align: center;
+}
+
+#footer {
+    width: 100%;
+    height: 20%;
+    flex-grow: 2;
+}
+
+#homeLink {
+    width: 100px;
+    height: 80px;
+    display: flex;
+    flex-grow: 2;
+    justify-content: flex-end;
+    margin: 0 5px;
+}
+
+#homeLink img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#navList {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: stretch;
+    list-style: none;
+}
+
+#navList li {
+    margin: 0 20px;
+    display: flex;
+    align-items: stretch;
+}
+
+#navList li:hover {
+    color: #ccff99;
+}
+
+#focus {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    margin: 30px 0px;
+}
+
+#textSearch {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+}
+
+#description {
+    display: flex;
+    height: 30%;
+}
+
+#description div {
+    text-align: left;
+    width: 100%;
+    margin: 10px 0px 0px 300px;
+}
+
+#searchBox {
+    display: flex;
+    height: 70%;
+}
+
+#searchBox form {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#placeList {
+    display: flex;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+#imageList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    width: 40%;
+    height: 100%;
+    margin: 0px auto;
+}
+
+#imageList li {
+    display: flex;
+    margin: 2px 0px;
+}
+
+#imageList img {
+    /* flex-grow: 0.1;   no changes*/
+    max-width: 100%;
+    max-height: 100%;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+
+/*
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,{
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    color: #4C9CF1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #444;
+}
+
+img {
+    width: 100%;
+}
+
+header {
+    background: #fff;
+    width: 60%;
+    height: 76px;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    border-bottom: 1px solid #fff;
+    z-index: 2;
+}
+
+#logo {
+    margin: 0px 0px 0px 100px;
+    float: left;
+    width: 100px;
+    height: 80px;
+    background: url(./pics/logo01.gif) no-repeat center;
+    display: block;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    align-items: center;
+}
+
+nav {
+    float: left;
+    padding: 20px;
+}
+
+#menu-icon {
+    display: hidden;
+    max-width: 100%;
+    max-height: 100%;
+    background: #4C8FEC url(./pics/menu-icon.png) center;
+}
+
+a:hover#menu-icon {
+    background-color: #444;
+    border-radius: 4px 4px 0 0;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+    float: left;
+    padding: 10px
+}
+
+.current {
+    color: #2262AD;
+}
+*/
+
+
+/*MEDIA QUERY*/
+
+
+/*
+@media only screen and (max-width: 640px) {
+    header {
+        position: absolute;
+    }
+    #menu-icon {
+        display: inline-block;
+    }
+    nav ul,
+    nav:active ul {
+        display: none;
+        position: absolute;
+        padding: 20px;
+        background: #fff;
+        border: 5px solid #444;
+        right: 20px;
+        top: 60px;
+        width: 50%;
+        border-radius: 4px 0 4px 4px;
+    }
+    nav li {
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+        margin: 0;
+    }
+    nav:hover ul {
+        display: block;
+    }
+}
+*/
