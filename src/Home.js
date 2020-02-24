@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import './Home.css';
+import './custom.scss';
+import { Button, Input } from 'reactstrap';
 // import Footer from './Footer';
 import Logo from './pics/logo01.gif';
 import Daocheng from './pics/daocheng.jpg';
@@ -9,12 +11,36 @@ import Linzhi from './pics/linzhi.jpeg';
 import Xihu from './pics/xihu.jpg';
 import Miaozhai from './pics/miaozhai.png';
 import Hulunbeier from './pics/hunlunbeier.jpg';
+import Search from './pics/search.png';
 
 
 class ToolBar extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            backgroundImg: null
+        }
+        this.clickPlace = this.clickPlace.bind(this);
+    }
+
+    clickPlace(e) {
+        let focusBackground = document.getElementById("focus");
+        let target = e.target;
+        let image = target.src;
+        if (focusBackground) {
+            focusBackground.style.backgroundImage = `url(${image})`;
+        }
+    }
+
+    componentDidMount() {
+        let focusBackground = document.getElementById("focus");
+        if (focusBackground) {
+            focusBackground.style.backgroundImage = `url(${Daocheng})`;
+        }
+    }
+
     render() {
-
-
         return (
             <>
                 {/* <header>
@@ -45,24 +71,32 @@ class ToolBar extends React.Component {
                     <div id="textSearch">
                         <div id="description">
                             <div>
-                                Sciences Description
+                                稻城 | 童話不過如此
                             </div>
                         </div>
 
                         <div id="searchBox">
                             <form>
-                                <input type="text" placeholder="Search.." name="search" />
-                                <button type="submit">Search</button>
+                                <div id="selection">
+                                    <input type="radio"></input> 全部
+                                    <input type="radio"></input> 目的地
+                                </div>
+
+                                <div id="search">
+                                    <Input placeholder="搜目的地/攻略" />
+                                    <Button active><img src={Search}></img></Button>{' '}
+                                </div>
+
                             </form>
                         </div>
                     </div>
                     <div id="placeList">
                         <ul id="imageList">
-                            <li><img src={Daocheng} /></li>
-                            <li><img src={Linzhi} /></li>
-                            <li><img src={Xihu} /></li>
-                            <li><img src={Miaozhai} /></li>
-                            <li><img src={Hulunbeier} /></li>
+                            <li><img src={Daocheng} onClick={this.clickPlace} /></li>
+                            <li ><img src={Linzhi} onClick={this.clickPlace} /></li>
+                            <li><img src={Xihu} onClick={this.clickPlace} /></li>
+                            <li><img src={Miaozhai} onClick={this.clickPlace} /></li>
+                            <li><img src={Hulunbeier} onClick={this.clickPlace} /></li>
                         </ul>
                     </div>
                 </div>
