@@ -4,13 +4,14 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import './Home.css';
 import './custom.scss';
 import { Button, Input } from 'reactstrap';
-// import Footer from './Footer';
+import Footer from './Footer';
 import Logo from './pics/logo01.gif';
 import Daocheng from './pics/daocheng.jpg';
 import Linzhi from './pics/linzhi.jpeg';
 import Xihu from './pics/xihu.jpg';
 import Miaozhai from './pics/miaozhai.png';
 import Hulunbeier from './pics/hunlunbeier.jpg';
+import Yushui from './pics/yushui.jpg';
 import Search from './pics/search.png';
 
 
@@ -36,7 +37,7 @@ class ToolBar extends React.Component {
     componentDidMount() {
         let focusBackground = document.getElementById("focus");
         if (focusBackground) {
-            focusBackground.style.backgroundImage = `url(${Daocheng})`;
+            focusBackground.style.backgroundImage = `url(${Yushui})`;
         }
     }
 
@@ -136,7 +137,7 @@ class Home extends React.Component {
                         <RecommList />
                     </div>
                     <div id="footer">
-                        {/* <Footer /> */}
+                        <Footer />
                     </div>
                 </div>
             </Router>
