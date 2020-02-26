@@ -6,19 +6,30 @@ import './custom.scss';
 import classnames from 'classnames';
 import { Button, Input, Container, Row, Col, Card, CardImg, NavLink, CardText, TabContent, TabPane, Nav, NavItem, CardTitle } from 'reactstrap';
 import Footer from './Footer';
+
 import Logo from './pics/logo01.gif';
+
 import Daocheng from './pics/daocheng.jpg';
 import Linzhi from './pics/linzhi.jpeg';
 import Xihu from './pics/xihu.jpg';
 import Miaozhai from './pics/miaozhai.png';
 import Hulunbeier from './pics/hunlunbeier.jpg';
 import Yushui from './pics/yushui.jpg';
+import Search from './pics/search.png';
+
 import Asia from './pics/asia-con.png';
 import Ociena from './pics/ociena-co.png';
 import European from './pics/EU-icon.gif';
 import America from './pics/america-icon.jpg';
 import Africa from './pics/africa-con.png';
-import Search from './pics/search.png';
+
+import Latest from './pics/news.JPG';
+import LatestNews from './pics/latestNews.jpg';
+import LatestPolicy from './pics/latestPolicy.jpg';
+
+
+
+
 
 
 class ToolBar extends React.Component {
@@ -176,7 +187,21 @@ class RecommList extends React.Component {
                     </Row>
 
                     <Row>
-                        <Col xs="4">最新動態</Col>
+                        <Col xs="4">
+                            <Card>
+                                <CardImg top width="100%" src={Latest} />
+                            </Card>
+                            <Card body className="text-center">
+                                <CardTitle>最新動態</CardTitle>
+                                <CardImg top width="100%" src={LatestNews} />
+                                <CardText>關注綫路最新動態，出行更自由</CardText>
+                            </Card>
+                            <Card body className="text-right">
+                                <CardTitle>最新政策</CardTitle>
+                                <CardImg top width="100%" src={LatestPolicy} />
+                                <CardText>關注新政策，出行有保障</CardText>
+                            </Card>
+                        </Col>
                         <Col xs="8">
                             <Nav tabs className="recommdList">
                                 <NavItem>

@@ -194,7 +194,7 @@ a:hover {
     list-style: none;
     width: 60%;
     height: 100%;
-    margin: 20px auto;
+    margin: 50px auto;
 }
 
 #imageList li {
@@ -231,6 +231,11 @@ a:hover {
 
 .recommdList a:hover {
     color: #f7a223;
+}
+
+.col-4 img {
+    width: 60%;
+    height: 70%;
 }
 
 
