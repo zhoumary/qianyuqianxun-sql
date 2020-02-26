@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import './Home.css';
 import './custom.scss';
-import { Button, Input } from 'reactstrap';
+import classnames from 'classnames';
+import { Button, Input, Container, Row, Col, Card, CardImg, NavLink, CardText, TabContent, TabPane, Nav, NavItem, CardTitle } from 'reactstrap';
 import Footer from './Footer';
 import Logo from './pics/logo01.gif';
 import Daocheng from './pics/daocheng.jpg';
@@ -12,6 +13,11 @@ import Xihu from './pics/xihu.jpg';
 import Miaozhai from './pics/miaozhai.png';
 import Hulunbeier from './pics/hunlunbeier.jpg';
 import Yushui from './pics/yushui.jpg';
+import Asia from './pics/asia-con.png';
+import Ociena from './pics/ociena-co.png';
+import European from './pics/EU-icon.gif';
+import America from './pics/america-icon.jpg';
+import Africa from './pics/africa-con.png';
 import Search from './pics/search.png';
 
 
@@ -107,11 +113,120 @@ class ToolBar extends React.Component {
 }
 
 class RecommList extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeTab: null,
+            setActiveTab: null
+        }
+    }
+
     render() {
+        const { activeTab, setActiveTab } = this.state;
+
+        const toggle = tab => {
+            if (activeTab !== tab) setActiveTab(tab);
+        }
+
         return (
-            <div>
-                Recommended List
-            </div>
+            <>
+                <Container className="recommdContianer">
+                    <Row className="router">
+                        <Col>
+                            <NavLink href="#">
+                                <Card>
+                                    <CardImg top width="100%" src={Asia} />
+                                    <CardText>亞洲綫</CardText>
+                                </Card>
+                            </NavLink>
+                        </Col>
+                        <Col>
+                            <NavLink href="#">
+                                <Card>
+                                    <CardImg top width="100%" src={Ociena} />
+                                    <CardText>大洋洲綫</CardText>
+                                </Card>
+                            </NavLink>
+                        </Col>
+                        <Col>
+                            <NavLink href="#">
+                                <Card>
+                                    <CardImg top width="100%" src={European} />
+                                    <CardText>歐洲綫</CardText>
+                                </Card>
+                            </NavLink>
+                        </Col>
+                        <Col>
+                            <NavLink href="#">
+                                <Card>
+                                    <CardImg top width="100%" src={America} />
+                                    <CardText>美洲綫</CardText>
+                                </Card>
+                            </NavLink>
+                        </Col>
+                        <Col>
+                            <NavLink href="#">
+                                <Card>
+                                    <CardImg top width="100%" src={Africa} />
+                                    <CardText>非洲綫</CardText>
+                                </Card>
+                            </NavLink>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col xs="4">最新動態</Col>
+                        <Col xs="8">
+                            <Nav tabs className="recommdList">
+                                <NavItem>
+                                    <NavLink
+                                        className={classnames({ active: activeTab === '1' })}
+                                        onClick={() => { toggle('1'); }}
+                                    >
+                                        熱門游記
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink
+                                        className={classnames({ active: activeTab === '2' })}
+                                        onClick={() => { toggle('2'); }}
+                                    >
+                                        最新發表
+                                    </NavLink>
+                                </NavItem>
+                            </Nav>
+                            <TabContent activeTab={activeTab}>
+                                <TabPane tabId="1">
+                                    <Row>
+                                        <Col sm="12">
+                                            <h4>Tab 1 Contents</h4>
+                                        </Col>
+                                    </Row>
+                                </TabPane>
+                                <TabPane tabId="2">
+                                    <Row>
+                                        <Col sm="6">
+                                            <Card body>
+                                                <CardTitle>Special Title Treatment</CardTitle>
+                                                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                                                <Button>Go somewhere</Button>
+                                            </Card>
+                                        </Col>
+                                        <Col sm="6">
+                                            <Card body>
+                                                <CardTitle>Special Title Treatment</CardTitle>
+                                                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
+                                                <Button>Go somewhere</Button>
+                                            </Card>
+                                        </Col>
+                                    </Row>
+                                </TabPane>
+                            </TabContent>
+                        </Col>
+                    </Row>
+                </Container>
+            </>
         )
     }
 }

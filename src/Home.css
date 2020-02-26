@@ -23,9 +23,7 @@ a {
 }
 
 a:hover {
-    color: #ccff99;
-    border-radius: 4px 4px 0 0;
-    border-bottom: thick #ccff99;
+    color: #f7a223;
 }
 
 #home {
@@ -47,14 +45,16 @@ a:hover {
 #recommList {
     width: 100%;
     height: 60%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+    /* align-items: center; */
 }
 
 #footer {
     width: 100%;
     height: 20%;
     flex-grow: 2;
-    background-color: gray;
 }
 
 #homeLink {
@@ -77,6 +77,10 @@ a:hover {
     align-content: center;
     align-items: stretch;
     list-style: none;
+    border-bottom-color: #cde5d1;
+    border-bottom-style: solid;
+    border-bottom-width: 2.5px;
+    margin-bottom: 0px;
 }
 
 #navList li {
@@ -96,7 +100,7 @@ a:hover {
     align-items: stretch;
     /* margin: 30px 0px; */
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 #textSearch {
@@ -204,6 +208,29 @@ a:hover {
     max-height: 100%;
     opacity: 0.8;
     border-radius: 10px;
+}
+
+#recommList {
+    color: black;
+}
+
+.recommdContianer .card {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0);
+    align-items: center;
+}
+
+.router a {
+    font-size: medium;
+    font-weight: normal;
+}
+
+.recommdList a {
+    font-size: medium;
+}
+
+.recommdList a:hover {
+    color: #f7a223;
 }
 
 

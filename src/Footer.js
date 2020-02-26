@@ -6,6 +6,9 @@ import './custom.scss';
 import LogoOne from './pics/qianyuqianxun03.jpg';
 import LogoTwo from './pics/qianyuqianxun07.jpg';
 import LogoThree from './pics/qianyuqianxun14.jpg';
+import Logo3 from './pics/logo03.gif';
+import Logo4 from './pics/logo04.gif';
+import Logo5 from './pics/logo05.gif';
 import { Card, Button, CardImg, CardTitle, CardText, CardGroup, CardSubtitle, CardBody } from 'reactstrap';
 
 class Footer extends React.Component {
@@ -20,26 +23,19 @@ class Footer extends React.Component {
     render() {
         return (
             <>
-                <CardGroup>
+                <CardGroup className="footerContainer">
                     <Card>
                         <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>This content is a little bit longer.</CardText>
+                            <CardTitle>千遇千尋旅游</CardTitle>
+                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                            <CardText>60,000 多个全球旅游目的地</CardText>
                         </CardBody>
                     </Card>
                     <Card>
                         <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
-                        </CardBody>
-                    </Card>
-                    <Card>
-                        <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>This is a wider card with supporting text below as a natural lead-in to additional content.</CardText>
+                            <CardTitle>關於我們</CardTitle>
+                            <CardSubtitle>關於千遇千尋 聯係我們</CardSubtitle>
+                            <CardText>加入我們</CardText>
                         </CardBody>
                     </Card>
                     <Card>

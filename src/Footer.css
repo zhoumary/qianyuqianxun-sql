@@ -1,3 +1,14 @@
-CardGroup {
-    background-color: black;
+.card-img-top {
+    width: 50%;
+    height: 80%;
+    opacity: 0.65;
+}
+
+.footerContainer .card {
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0);
+    background-color: #484848;
+    color: white;
+    font-size: 0.85rem;
 }
