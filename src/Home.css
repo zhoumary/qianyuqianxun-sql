@@ -233,9 +233,45 @@ a:hover {
     color: #f7a223;
 }
 
+.col-4 .card {
+    align-items: flex-start;
+}
+
 .col-4 img {
     width: 60%;
     height: 70%;
+    opacity: 0.8;
+}
+
+.newsTravels .card-title {
+    font-size: medium;
+    font-weight: bold;
+    font-family: fantasy;
+}
+
+.newsTravels .card-text:last-child {
+    font-size: small;
+    font-family: fantasy;
+}
+
+.newsTravels .col-8 {
+    margin: 20px auto;
+}
+
+.recommdCards .card {
+    background-color: white;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.recommdCards img {
+    width: 80%;
+    height: 90%;
+    opacity: 1;
+}
+
+.recommdCards .list-group-item {
+    border: 0px solid rgba(0, 0, 0, 0);
 }
 
 
