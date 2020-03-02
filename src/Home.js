@@ -155,7 +155,7 @@ class RecommList extends React.Component {
     }
 
     getTravelNotes = _ => {
-        fetch('http://localhost:4000/weather')
+        fetch('http://localhost:4000/travelNotes')
             .then(response => response.json())
             .then(response => {
                 this.setState({ travelNotes: response.data })
@@ -163,200 +163,439 @@ class RecommList extends React.Component {
             .catch(err => console.log(err))
     }
 
-    render() {
+    renderLatest = ({ id, title, description, destination, image }) => {
+
+        let base64data;
+        if (image) {
+            // convert blob to base64
+            console.log(image);
+            let blob = new Blob(image.data);
+
+            const fileReaderInstance = new FileReader();
+
+            fileReaderInstance.readAsDataURL(blob);
+            fileReaderInstance.onloadend = () => {
+                base64data = fileReaderInstance.result;
+                console.log(base64data);
+            }
+        }
+
         return (
-            <>
-                <Container className="recommdContianer">
-                    <Row className="router">
-                        <Col>
-                            <NavLink href="#">
-                                <Card>
-                                    <CardImg top width="100%" src={Asia} />
-                                    <CardText>亞洲綫</CardText>
-                                </Card>
-                            </NavLink>
-                        </Col>
-                        <Col>
-                            <NavLink href="#">
-                                <Card>
-                                    <CardImg top width="100%" src={Ociena} />
-                                    <CardText>大洋洲綫</CardText>
-                                </Card>
-                            </NavLink>
-                        </Col>
-                        <Col>
-                            <NavLink href="#">
-                                <Card>
-                                    <CardImg top width="100%" src={European} />
-                                    <CardText>歐洲綫</CardText>
-                                </Card>
-                            </NavLink>
-                        </Col>
-                        <Col>
-                            <NavLink href="#">
-                                <Card>
-                                    <CardImg top width="100%" src={America} />
-                                    <CardText>美洲綫</CardText>
-                                </Card>
-                            </NavLink>
-                        </Col>
-                        <Col>
-                            <NavLink href="#">
-                                <Card>
-                                    <CardImg top width="100%" src={Africa} />
-                                    <CardText>非洲綫</CardText>
-                                </Card>
-                            </NavLink>
-                        </Col>
-                    </Row>
-
-                    <Row className="newsTravels">
-                        <Col xs="4">
-                            <Card>
-                                <CardImg top width="100%" src={Latest} />
-                            </Card>
-                            <Card body className="text-center">
-                                <CardTitle>最新動態</CardTitle>
-                                <CardImg top width="100%" src={LatestNews} />
-                                <CardText>關注綫路最新動態，出行更自由</CardText>
-                            </Card>
-                            <Card body className="text-right">
-                                <CardTitle>最新政策</CardTitle>
-                                <CardImg top width="100%" src={LatestPolicy} />
-                                <CardText>關注新政策，出行有保障</CardText>
-                            </Card>
-                        </Col>
-                        <Col xs="8">
-                            <Nav tabs className="recommdList">
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: this.state.activeTab === '1' })}
-                                        onClick={() => { this.toggle('1'); }}
-                                    >
-                                        熱門游記
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink
-                                        className={classnames({ active: this.state.activeTab === '2' })}
-                                        onClick={() => { this.toggle('2'); }}
-                                    >
-                                        最新發表
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
-                            <TabContent activeTab={this.state.activeTab} className="recommdCards">
-                                <TabPane tabId="1">
-                                    <ListGroup>
-                                        <ListGroupItem tag="a" href="#" action>
-                                            <CardGroup>
-                                                <Card>
-                                                    <CardImg top width="100%" src={Turkey} />
-                                                </Card>
-                                                <Card>
-                                                    <CardBody>
-                                                        <CardTitle>千遇千尋旅游</CardTitle>
-                                                        <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
-                                                        <CardText>60,000 多个全球旅游目的地</CardText>
-                                                    </CardBody>
-                                                </Card>
-                                            </CardGroup>
-                                        </ListGroupItem>
-                                        <ListGroupItem>
-                                            <CardGroup>
-                                                <Card>
-                                                    <CardImg top width="100%" src={River} />
-                                                </Card>
-                                                <Card>
-                                                    <CardBody>
-                                                        <CardTitle>千遇千尋旅游</CardTitle>
-                                                        <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
-                                                        <CardText>60,000 多个全球旅游目的地</CardText>
-                                                    </CardBody>
-                                                </Card>
-                                            </CardGroup>
-                                        </ListGroupItem>
-                                        <ListGroupItem>
-                                            <CardGroup>
-                                                <Card>
-                                                    <CardImg top width="100%" src={Greece} />
-                                                </Card>
-                                                <Card>
-                                                    <CardBody>
-                                                        <CardTitle>千遇千尋旅游</CardTitle>
-                                                        <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
-                                                        <CardText>60,000 多个全球旅游目的地</CardText>
-                                                    </CardBody>
-                                                </Card>
-                                            </CardGroup>
-                                        </ListGroupItem>
-                                        <ListGroupItem>
-                                            <CardGroup>
-                                                <Card>
-                                                    <CardImg top width="100%" src={Desert} />
-                                                </Card>
-                                                <Card>
-                                                    <CardBody>
-                                                        <CardTitle>千遇千尋旅游</CardTitle>
-                                                        <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
-                                                        <CardText>60,000 多个全球旅游目的地</CardText>
-                                                    </CardBody>
-                                                </Card>
-                                            </CardGroup>
-                                        </ListGroupItem>
-                                        <ListGroupItem>
-                                            <CardGroup>
-                                                <Card>
-                                                    <CardImg top width="100%" src={Tebit} />
-                                                </Card>
-                                                <Card>
-                                                    <CardBody>
-                                                        <CardTitle>千遇千尋旅游</CardTitle>
-                                                        <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
-                                                        <CardText>60,000 多个全球旅游目的地</CardText>
-                                                    </CardBody>
-                                                </Card>
-                                            </CardGroup>
-                                        </ListGroupItem>
-                                        <ListGroupItem>
-                                            <CardGroup>
-                                                <Card>
-                                                    <CardImg top width="100%" src={Indiain} />
-                                                </Card>
-                                                <Card>
-                                                    <CardBody>
-                                                        <CardTitle>千遇千尋旅游</CardTitle>
-                                                        <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
-                                                        <CardText>60,000 多个全球旅游目的地</CardText>
-                                                    </CardBody>
-                                                </Card>
-                                            </CardGroup>
-                                        </ListGroupItem>
-                                        <ListGroupItem>
-                                            <CardGroup>
-                                                <Card>
-                                                    <CardImg top width="100%" src={Guilin} />
-                                                </Card>
-                                                <Card>
-                                                    <CardBody>
-                                                        <CardTitle>千遇千尋旅游</CardTitle>
-                                                        <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
-                                                        <CardText>60,000 多个全球旅游目的地</CardText>
-                                                    </CardBody>
-                                                </Card>
-                                            </CardGroup>
-                                        </ListGroupItem>
-                                    </ListGroup>
-                                </TabPane>
-                                <TabPane tabId="2">
-
-                                </TabPane>
-                            </TabContent>
-                        </Col>
-                    </Row>
-                </Container>
-            </>
+            <ListGroupItem tag="a" href="#" action key={id}>
+                <CardGroup>
+                    <Card>
+                        <CardImg src={`http://localhost:4000/travalNodesImg/${id}`} top width="100%" />
+                        <img src={base64data}></img>
+                    </Card>
+                    <Card>
+                        <CardBody>
+                            <CardTitle>{title}</CardTitle>
+                            <CardSubtitle>{destination}</CardSubtitle>
+                            <CardText>{description}</CardText>
+                        </CardBody>
+                    </Card>
+                </CardGroup>
+            </ListGroupItem>
         )
+    }
+
+    render() {
+        const { travelNotes } = this.state;
+        if (travelNotes == []) {
+            return (
+                <>
+                    <Container className="recommdContianer">
+                        <Row className="router">
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={Asia} />
+                                        <CardText>亞洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={Ociena} />
+                                        <CardText>大洋洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={European} />
+                                        <CardText>歐洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={America} />
+                                        <CardText>美洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={Africa} />
+                                        <CardText>非洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                        </Row>
+
+                        <Row className="newsTravels">
+                            <Col xs="4">
+                                <Card>
+                                    <CardImg top width="100%" src={Latest} />
+                                </Card>
+                                <Card body className="text-center">
+                                    <CardTitle>最新動態</CardTitle>
+                                    <CardImg top width="100%" src={LatestNews} />
+                                    <CardText>關注綫路最新動態，出行更自由</CardText>
+                                </Card>
+                                <Card body className="text-right">
+                                    <CardTitle>最新政策</CardTitle>
+                                    <CardImg top width="100%" src={LatestPolicy} />
+                                    <CardText>關注新政策，出行有保障</CardText>
+                                </Card>
+                            </Col>
+                            <Col xs="8">
+                                <Nav tabs className="recommdList">
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: this.state.activeTab === '1' })}
+                                            onClick={() => { this.toggle('1'); }}
+                                        >
+                                            熱門游記
+                                    </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: this.state.activeTab === '2' })}
+                                            onClick={() => { this.toggle('2'); }}
+                                        >
+                                            最新發表
+                                    </NavLink>
+                                    </NavItem>
+                                </Nav>
+                                <TabContent activeTab={this.state.activeTab} className="recommdCards">
+                                    <TabPane tabId="1">
+                                        <ListGroup>
+                                            <ListGroupItem tag="a" href="#" action>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Turkey} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={River} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Greece} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Desert} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Tebit} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Indiain} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Guilin} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                        </ListGroup>
+                                    </TabPane>
+                                    <TabPane tabId="2">
+                                        {/* <ListGroup>
+                                            {travelNotes.map(this.renderLatest)}
+                                        </ListGroup> */}
+                                    </TabPane>
+                                </TabContent>
+                            </Col>
+                        </Row>
+                    </Container>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <Container className="recommdContianer">
+                        <Row className="router">
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={Asia} />
+                                        <CardText>亞洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={Ociena} />
+                                        <CardText>大洋洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={European} />
+                                        <CardText>歐洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={America} />
+                                        <CardText>美洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                            <Col>
+                                <NavLink href="#">
+                                    <Card>
+                                        <CardImg top width="100%" src={Africa} />
+                                        <CardText>非洲綫</CardText>
+                                    </Card>
+                                </NavLink>
+                            </Col>
+                        </Row>
+
+                        <Row className="newsTravels">
+                            <Col xs="4">
+                                <Card>
+                                    <CardImg top width="100%" src={Latest} />
+                                </Card>
+                                <Card body className="text-center">
+                                    <CardTitle>最新動態</CardTitle>
+                                    <CardImg top width="100%" src={LatestNews} />
+                                    <CardText>關注綫路最新動態，出行更自由</CardText>
+                                </Card>
+                                <Card body className="text-right">
+                                    <CardTitle>最新政策</CardTitle>
+                                    <CardImg top width="100%" src={LatestPolicy} />
+                                    <CardText>關注新政策，出行有保障</CardText>
+                                </Card>
+                            </Col>
+                            <Col xs="8">
+                                <Nav tabs className="recommdList">
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: this.state.activeTab === '1' })}
+                                            onClick={() => { this.toggle('1'); }}
+                                        >
+                                            熱門游記
+                                    </NavLink>
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink
+                                            className={classnames({ active: this.state.activeTab === '2' })}
+                                            onClick={() => { this.toggle('2'); }}
+                                        >
+                                            最新發表
+                                    </NavLink>
+                                    </NavItem>
+                                </Nav>
+                                <TabContent activeTab={this.state.activeTab} className="recommdCards">
+                                    <TabPane tabId="1">
+                                        <ListGroup>
+                                            <ListGroupItem tag="a" href="#" action>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Turkey} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={River} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Greece} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Desert} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Tebit} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Indiain} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                            <ListGroupItem>
+                                                <CardGroup>
+                                                    <Card>
+                                                        <CardImg top width="100%" src={Guilin} />
+                                                    </Card>
+                                                    <Card>
+                                                        <CardBody>
+                                                            <CardTitle>千遇千尋旅游</CardTitle>
+                                                            <CardSubtitle>年輕的你，用更酷的方式去探尋</CardSubtitle>
+                                                            <CardText>60,000 多个全球旅游目的地</CardText>
+                                                        </CardBody>
+                                                    </Card>
+                                                </CardGroup>
+                                            </ListGroupItem>
+                                        </ListGroup>
+                                    </TabPane>
+                                    <TabPane tabId="2">
+                                        <ListGroup>
+                                            {travelNotes.map(this.renderLatest)}
+                                        </ListGroup>
+                                    </TabPane>
+                                </TabContent>
+                            </Col>
+                        </Row>
+                    </Container>
+                </>
+            )
+        }
+
+
     }
 }
 
