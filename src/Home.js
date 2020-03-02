@@ -15,6 +15,7 @@ import Xihu from './pics/xihu.jpg';
 import Miaozhai from './pics/miaozhai.png';
 import Hulunbeier from './pics/hunlunbeier.jpg';
 import Yushui from './pics/yushui.jpg';
+import DefaultBoard from './pics/defaultBoard02.jpg';
 import Search from './pics/search.png';
 
 import Asia from './pics/asia-con.png';
@@ -60,7 +61,7 @@ class ToolBar extends React.Component {
     componentDidMount() {
         let focusBackground = document.getElementById("focus");
         if (focusBackground) {
-            focusBackground.style.backgroundImage = `url(${Yushui})`;
+            focusBackground.style.backgroundImage = `url(${DefaultBoard})`;
         }
     }
 
@@ -134,7 +135,8 @@ class RecommList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTab: null
+            activeTab: null,
+            travelNotes: []
         }
         this.toggle = this.toggle.bind(this);
     }
@@ -147,6 +149,18 @@ class RecommList extends React.Component {
 
     componentDidMount() {
 
+        this.setState({ activeTab: "1" });
+        this.getTravelNotes();
+
+    }
+
+    getTravelNotes = _ => {
+        fetch('http://localhost:4000/weather')
+            .then(response => response.json())
+            .then(response => {
+                this.setState({ travelNotes: response.data })
+            })
+            .catch(err => console.log(err))
     }
 
     render() {

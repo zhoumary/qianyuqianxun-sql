@@ -77,7 +77,7 @@ a:hover {
     align-content: center;
     align-items: stretch;
     list-style: none;
-    border-bottom-color: #cde5d1;
+    border-bottom-color: white;
     border-bottom-style: solid;
     border-bottom-width: 2.5px;
     margin-bottom: 0px;
@@ -178,7 +178,7 @@ a:hover {
 }
 
 #search button img {
-    max-width: 12%;
+    max-width: 15%;
 }
 
 #placeList {
@@ -192,7 +192,7 @@ a:hover {
     flex-direction: column;
     /* align-items: center; */
     list-style: none;
-    width: 60%;
+    width: 55%;
     height: 100%;
     margin: 50px auto;
 }
@@ -267,6 +267,8 @@ a:hover {
 .recommdCards img {
     width: 80%;
     height: 90%;
+    max-width: fit-content;
+    max-height: fit-content;
     opacity: 1;
 }
 
