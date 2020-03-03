@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 const Weather = lazy(() => import("./Weather"));
 const Home = lazy(() => import("./Home"));
 const Detail = lazy(() => import("./Detail"));
+const ToolBar = lazy(() => import("./ToolBar"));
 const Footer = lazy(() => import("./Footer"));
 
 class App extends React.Component {
@@ -17,10 +18,10 @@ class App extends React.Component {
             <Route exact path="/" component={Weather} />
             <Route path="/Home" component={Home} />
             <Route path="/Detail/:id" component={Detail} />
+
+            <Route path="/ToolBar" component={ToolBar} />
             <Route path="/Footer" component={Footer} />
-            {/* <Route path="/Forecast" component={Forecast} />
-            <Route path="/Locations" component={LocationList} />
-            <Route path="/Search" component={Search} /> */}
+
           </Switch>
         </Suspense>
       </Router>
