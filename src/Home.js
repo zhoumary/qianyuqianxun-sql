@@ -181,7 +181,7 @@ class RecommList extends React.Component {
         }
 
         return (
-            <ListGroupItem tag="a" href="#" action key={id}>
+            <ListGroupItem action key={id} tag={Link} to={{ pathname: `/Detail/${id}` }} onClick={() => window.location.refresh()}>
                 <CardGroup>
                     <Card>
                         <CardImg src={`http://localhost:4000/travalNodesImg/${id}`} top width="100%" />
@@ -272,7 +272,7 @@ class RecommList extends React.Component {
                                             onClick={() => { this.toggle('1'); }}
                                         >
                                             熱門游記
-                                    </NavLink>
+                                        </NavLink>
                                     </NavItem>
                                     <NavItem>
                                         <NavLink
@@ -280,8 +280,9 @@ class RecommList extends React.Component {
                                             onClick={() => { this.toggle('2'); }}
                                         >
                                             最新發表
-                                    </NavLink>
+                                        </NavLink>
                                     </NavItem>
+
                                 </Nav>
                                 <TabContent activeTab={this.state.activeTab} className="recommdCards">
                                     <TabPane tabId="1">
@@ -466,6 +467,7 @@ class RecommList extends React.Component {
                                         <NavLink
                                             className={classnames({ active: this.state.activeTab === '1' })}
                                             onClick={() => { this.toggle('1'); }}
+                                            href="#"
                                         >
                                             熱門游記
                                     </NavLink>
@@ -474,6 +476,7 @@ class RecommList extends React.Component {
                                         <NavLink
                                             className={classnames({ active: this.state.activeTab === '2' })}
                                             onClick={() => { this.toggle('2'); }}
+                                            href="#"
                                         >
                                             最新發表
                                     </NavLink>
