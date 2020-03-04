@@ -7,7 +7,6 @@ import classnames from 'classnames';
 import { Button, Input, Container, Row, Col, CardGroup, CardBody, CardSubtitle, Card, CardImg, NavLink, CardText, TabContent, TabPane, Nav, NavItem, CardTitle, ListGroup, ListGroupItem } from 'reactstrap';
 import Footer from './Footer';
 import ToolBar from './ToolBar';
-import DefaultBoard from './pics/defaultBoard02.jpg';
 
 
 class Detail extends React.Component {
@@ -21,13 +20,6 @@ class Detail extends React.Component {
 
     componentDidMount() {
         this.getTravelNote();
-        this.getTravelNoteImage();
-
-        // set travel note title background image
-        let noteBackground = document.getElementById("noteTitile");
-        if (noteBackground && this.state.noteImage !== null) {
-            noteBackground.style.backgroundImage = `url(${DefaultBoard})`;
-        }
     }
 
     getTravelNote = _ => {
@@ -38,19 +30,6 @@ class Detail extends React.Component {
             .then(response => response.json())
             .then(response => {
                 this.setState({ travelNote: response.data });
-            })
-            .catch(err => console.log(err))
-    }
-
-    getTravelNoteImage = _ => {
-        const id = this.props.match.params.id;
-        const urlImage = 'http://localhost:4000/travalNodesImg/' + id;
-
-        fetch(urlImage)
-            .then(response => {
-                this.setState({ noteImage: response.data });
-                console.log(response);
-                console.log(response.data);
             })
             .catch(err => console.log(err))
     }
@@ -87,7 +66,12 @@ class Detail extends React.Component {
 
                                 </Col>
 
-                                <Col xs="3">
+                                <Col xs="3" className="noteIndex">
+                                    <Card>
+                                        <CardTitle>
+                                            游記目錄
+                                        </CardTitle>
+                                    </Card>
 
                                 </Col>
                             </Row>

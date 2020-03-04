@@ -34,3 +34,11 @@
     border: 0px solid rgba(0, 0, 0, 0);
     color: white;
 }
+
+.noteIndex {
+    margin: 10px auto;
+}
+
+.noteIndex .card {
+    border: 0px solid rgba(0, 0, 0, 0);
+}
