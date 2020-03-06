@@ -14,12 +14,14 @@ class Detail extends React.Component {
         super(props);
         this.state = {
             travelNote: null,
+            noteContent: null,
             noteImage: null
         }
     }
 
     componentDidMount() {
         this.getTravelNote();
+        this.getTravelNoteContent();
     }
 
     getTravelNote = _ => {
@@ -34,17 +36,29 @@ class Detail extends React.Component {
             .catch(err => console.log(err))
     }
 
+    getTravelNoteContent = _ => {
+        const id = this.props.match.params.id;
+        const url = 'http://localhost:4000/travelNoteContents' + '?noteID=' + id;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(response => {
+                this.setState({ noteContent: response.data });
+
+            })
+            .catch(err => console.log(err))
+    }
+
     render() {
         const id = this.props.match.params.id;
         const urlImage = 'http://localhost:4000/travalNodesImg/' + id;
+
         const note = this.state.travelNote;
         if (note === null) {
-            return (
-                <Router></Router>
-            )
+            return <div></div>
         }
 
-
+        const content = this.state.noteContent;
 
 
         return (
@@ -58,12 +72,13 @@ class Detail extends React.Component {
                             <Card body className="title">
                                 <CardTitle>{note.title}</CardTitle>
                             </Card>
-
                         </div>
                         <Container className="content">
                             <Row className="noteContent">
-                                <Col xs="8">
-
+                                <Col xs="8" className="noteDetails">
+                                    <Card body className="title">
+                                        <CardTitle>{content}</CardTitle>
+                                    </Card>
                                 </Col>
 
                                 <Col xs="3" className="noteIndex">
