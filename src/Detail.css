@@ -39,10 +39,20 @@
     margin: 10px auto;
 }
 
-.noteIndex .card {
+.noteDetails {
+    margin: 10px auto;
+}
+
+.noteContent .card {
+    align-items: center;
+    background-color: transparent;
     border: 0px solid rgba(0, 0, 0, 0);
 }
 
-.noteDetails .card {
+.noteContent .list-group-item {
     border: 0px solid rgba(0, 0, 0, 0);
+}
+
+.noteContent .card-img-top {
+    opacity: 1;
 }

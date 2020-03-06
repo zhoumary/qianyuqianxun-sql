@@ -91,6 +91,7 @@ class ToolBar extends React.Component {
                             <li><a href="#">聯係我們</a></li>
                         </ul>
                     </nav>
+                    <Button color="primary">寫游記</Button>
                 </header>
                 <div id="focus">
                     <div id="textSearch">
@@ -165,27 +166,11 @@ class RecommList extends React.Component {
 
     renderLatest = ({ id, title, description, destination, image }) => {
 
-        let base64data;
-        if (image) {
-            // convert blob to base64
-            console.log(image);
-            let blob = new Blob(image.data);
-
-            const fileReaderInstance = new FileReader();
-
-            fileReaderInstance.readAsDataURL(blob);
-            fileReaderInstance.onloadend = () => {
-                base64data = fileReaderInstance.result;
-                console.log(base64data);
-            }
-        }
-
         return (
             <ListGroupItem action key={id} tag={Link} to={{ pathname: `/Detail/${id}` }} onClick={() => window.location.refresh()}>
                 <CardGroup>
                     <Card>
                         <CardImg src={`http://localhost:4000/travalNodesImg/${id}`} top width="100%" />
-                        <img src={base64data}></img>
                     </Card>
                     <Card>
                         <CardBody>

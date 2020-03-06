@@ -21,7 +21,7 @@ class Detail extends React.Component {
 
     componentDidMount() {
         this.getTravelNote();
-        this.getTravelNoteContent();
+        this.getNoteContents();
     }
 
     getTravelNote = _ => {
@@ -36,18 +36,31 @@ class Detail extends React.Component {
             .catch(err => console.log(err))
     }
 
-    getTravelNoteContent = _ => {
+
+    getNoteContents = _ => {
         const id = this.props.match.params.id;
-        const url = 'http://localhost:4000/travelNoteContents' + '?noteID=' + id;
+        const url = 'http://localhost:4000/travelNote/' + '?noteID=' + id;
 
         fetch(url)
             .then(response => response.json())
             .then(response => {
                 this.setState({ noteContent: response.data });
-
             })
             .catch(err => console.log(err))
     }
+
+
+    renderNoteContents = ({ id, noteID, content }) => {
+
+
+        return (
+            <>
+
+            </>
+        );
+    }
+
+
 
     render() {
         const id = this.props.match.params.id;
@@ -58,8 +71,7 @@ class Detail extends React.Component {
             return <div></div>
         }
 
-        const content = this.state.noteContent;
-
+        const noteContens = this.state.noteContent;
 
         return (
             <Router>
@@ -76,9 +88,9 @@ class Detail extends React.Component {
                         <Container className="content">
                             <Row className="noteContent">
                                 <Col xs="8" className="noteDetails">
-                                    <Card body className="title">
-                                        <CardTitle>{content}</CardTitle>
-                                    </Card>
+                                    <ListGroup>
+                                        {this.renderNoteContents({ noteContens })}
+                                    </ListGroup>
                                 </Col>
 
                                 <Col xs="3" className="noteIndex">
