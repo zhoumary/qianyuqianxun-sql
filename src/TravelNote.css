@@ -1,0 +1,32 @@
+#home {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    height: 100%;
+}
+
+#toolBar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+}
+
+#footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
+}
+
+#travelNoteContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 2.5rem;
+}

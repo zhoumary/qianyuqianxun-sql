@@ -91,7 +91,7 @@ class ToolBar extends React.Component {
                             <li><a href="#">聯係我們</a></li>
                         </ul>
                     </nav>
-                    <Button color="primary">寫游記</Button>
+                    <Button color="primary" tag={Link} to={{ pathname: `/TravelNote` }} onClick={() => window.location.refresh()}>寫游記</Button>
                 </header>
                 <div id="focus">
                     <div id="textSearch">
