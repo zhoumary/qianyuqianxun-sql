@@ -33,7 +33,7 @@ header .btn-primary {
 
 header .btn {
     border: 0px solid transparent;
-    margin: auto 15px;
+    margin: auto auto;
 }
 
 #home {

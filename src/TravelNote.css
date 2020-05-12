@@ -23,10 +23,38 @@
     height: 2.5rem;
 }
 
-#travelNoteContent {
+#editor {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     padding-bottom: 2.5rem;
+}
+
+.ck.ck-editor {
+    /* height: 200px !important; */
+    /* min-height: 500px !important; */
+    width: -webkit-fill-available !important;
+}
+
+.ck-editor__editable {
+    max-height: 350px;
+}
+
+.ck.ck-editor__editable_inline {
+    height: -webkit-fill-available !important;
+}
+
+#submitContent {
+    margin: 15px auto;
+}
+
+#submitContent .btn-primary {
+    background-color: #f7a223;
+}
+
+#submitContent .btn {
+    border: 0px solid transparent;
+    margin: auto 15px;
+    font-weight: bold;
 }

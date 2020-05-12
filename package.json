@@ -4,6 +4,10 @@
     "private": true,
     "dependencies": {
         "@ckeditor/ckeditor5-build-balloon": "^17.0.0",
+        "@ckeditor/ckeditor5-build-classic": "^17.0.0",
+        "@ckeditor/ckeditor5-easy-image": "^17.0.0",
+        "@ckeditor/ckeditor5-image": "^17.0.0",
+        "@ckeditor/ckeditor5-react": "^2.1.0",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
         "@testing-library/user-event": "^7.1.2",
@@ -11,6 +15,7 @@
         "node-sass": "^4.13.1",
         "react": "^16.12.0",
         "react-dom": "^16.12.0",
+        "react-dropzone": "^10.2.1",
         "react-scripts": "3.4.0",
         "react-textarea-autosize": "^7.1.2",
         "reactstrap": "^8.4.1"

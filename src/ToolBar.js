@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Link } from "react-router-dom";
 import './ToolBar.css';
 import './custom.scss';
 
@@ -12,10 +12,10 @@ class ToolBar extends React.Component {
             <>
                 <div id="toolBar">
                     <header>
-                        <a href="#" id="homeLink"><img src={Logo} /></a>
+                        <Link to="/Home" id="homeLink" onClick={() => window.location.refresh()}><img src={Logo} /></Link>
                         <nav>
                             <ul id="navList">
-                                <li><a href="#">首頁</a></li>
+                                <li><Link to="/Home" onClick={() => window.location.refresh()}>首頁</Link></li>
                                 <li><a href="#">目的地</a></li>
                                 <li><a href="#">旅游攻略</a></li>
                                 <li><a href="#">聯係我們</a></li>
