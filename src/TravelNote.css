@@ -23,12 +23,21 @@
     height: 2.5rem;
 }
 
-#editor {
+
+/* #editor {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
     padding-bottom: 2.5rem;
+} */
+
+#classicEditor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 1.5rem;
 }
 
 .ck.ck-editor {
@@ -38,7 +47,7 @@
 }
 
 .ck-editor__editable {
-    max-height: 350px;
+    max-height: 320px;
 }
 
 .ck.ck-editor__editable_inline {

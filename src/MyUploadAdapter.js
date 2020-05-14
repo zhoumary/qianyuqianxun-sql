@@ -13,6 +13,11 @@ export default class MyUploadAdapter {
 
     // Starts the upload process.
     upload() {
+        // FormData
+        // file // ref
+        // await fetch 
+        // await 
+        
         return new Promise((resolve, reject) => {
             this._initRequest();
             this._initListeners(resolve, reject);
@@ -68,7 +73,7 @@ export default class MyUploadAdapter {
             // 上传成功
             // 根据自己后端的返回做相应的调整
             resolve({
-                default: response.url
+                default:`http://127.0.0.1:4000/resources/${response.data.insertId}`
             });
         });
         // Upload progress when it is supported. The FileLoader has the #uploadTotal and #uploaded
@@ -90,7 +95,8 @@ export default class MyUploadAdapter {
         // Prepare the form data.
         const data = new FormData();
         // 修改上传的name参数
-        data.append('fileName', this.loader.file);
+        // data.append('type', "img/jpeg");
+        data.append('filename', this.loader.file);
 
         const uploadData = this.loader.data;
         if (uploadData) {

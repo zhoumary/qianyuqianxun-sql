@@ -11,7 +11,7 @@ nav {
     flex-grow: 8;
     display: flex;
     justify-content: flex-start;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 a {
