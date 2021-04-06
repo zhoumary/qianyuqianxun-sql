@@ -6,7 +6,7 @@
         "@ckeditor/ckeditor5-build-balloon": "^17.0.0",
         "@ckeditor/ckeditor5-build-classic": "^17.0.0",
         "@ckeditor/ckeditor5-easy-image": "^17.0.0",
-        "@ckeditor/ckeditor5-image": "^17.0.0",
+        "@ckeditor/ckeditor5-image": "^27.0.0",
         "@ckeditor/ckeditor5-react": "^2.1.0",
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.3.2",
